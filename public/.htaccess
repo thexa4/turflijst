@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^(.*?)/?$ $1.php [L]
