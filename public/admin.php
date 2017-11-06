@@ -19,7 +19,7 @@ require_admin();
 
 <h2>Betaling toevoegen</h2>
 <form action="/deposit" method="POST">
-<select>
+<select name="user">
 <?php
 foreach($config['users'] as $user) {
 ?>
