@@ -34,6 +34,19 @@ if ($delta < 0 || $delta > 30*60) {
     die();
 }
 
+if (empty($config['emails'])) {
+    // First user, make admin
+    set_users([
+        emails => [$decoded->mail],
+        admins => [$decoded->mail],
+    ]);
+} else {
+    if (!in_array($decoded->mail, $config['emails'])) {
+        echo("Not authorized to log in.");
+        die();
+    }
+}
+
 $_SESSION['mail'] = $decoded->mail;
 
 header('Location: /list')

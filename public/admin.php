@@ -10,8 +10,9 @@ include_once("../config.php");
 
 ?>
 
+<h2>Betaling toevoegen:</h2>
+<form action="POST" method="deposit">
 <select>
-
 <?php
 foreach($config['users'] as $user) {
 ?>
@@ -20,7 +21,9 @@ foreach($config['users'] as $user) {
 <?php
 }
 ?>
-</select>
+</select> betaalt: 
+<input required type="number" placeholder="0.00" step="0.01" />
+<input type="submit" value="Toevoegen" />
 
 </body>
 </html>

@@ -1,13 +1,10 @@
 <?php
 
-session_start();
-if(!isset($_SESSION['mail'])) {
-    header("Location: /login");
-    exit();
-}
-
 include_once("../config.php");
 include_once("../transaction.php");
+include_once("../auth.php");
+
+require_login();
 
 ?>
 <!DOCTYPE html>
@@ -23,18 +20,22 @@ include_once("../transaction.php");
 <a href="/corrections">Correcties</a>
 <a href="/admin">Administratie</a>
 <form method="POST" action="/add">
-
+<table>
+<th><tr><td>Naam</td><td colspan="2">&nbsp;</td><td>Saldo</td></tr></th>
 <?php
 foreach($config['users'] as $user) {
     $saldo = transaction_summary($user);
 ?>
-<p><?= $user ?>
-<input type="submit" name="bier[<?= base64_encode($user) ?>]" value="Bier (<?= number_format($saldo['bier'], 0) ?>) +1" />
-<input type="submit" name="fris[<?= base64_encode($user) ?>]" value="Fris (<?= number_format($saldo['fris'], 0) ?>) +1" />
-(&euro;<?= number_format($saldo['money'], 2) ?>)
+<tr>
+<td><?= $user ?></td>
+<td><input type="submit" name="bier[<?= base64_encode($user) ?>]" value="Bier (<?= number_format($saldo['bier'], 0) ?>) +1" /></td>
+<td><input type="submit" name="fris[<?= base64_encode($user) ?>]" value="Fris (<?= number_format($saldo['fris'], 0) ?>) +1" /></td>
+<td>(&euro;<?= number_format($saldo['money'], 2) ?>)</td>
+</tr>
 <?php
 }
 ?>
+</table>
 </form>
 
 
