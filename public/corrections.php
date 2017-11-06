@@ -16,6 +16,7 @@ include_once("../transaction.php");
 <meta charset="utf-8" />
 <title>Dranklijst</title>
 <link rel="stylesheet" href="/style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <h1>Dranklijst Scouting Hillegersberg</h1>
@@ -23,7 +24,7 @@ include_once("../transaction.php");
 <a href="/list">Toevoegen</a>
 <form method="POST" action="/subtract">
 <table>
-<th><tr><td>Naam</td><td colspan="2">&nbsp;</td><td>Saldo</td></tr></th>
+<thead><th>Naam</th><th colspan="2">&nbsp;</th><th>Saldo</th></thead>
 <?php
 foreach($config['users'] as $user) {
         $saldo = transaction_summary($user);

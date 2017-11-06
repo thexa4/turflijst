@@ -1,0 +1,16 @@
+body {
+    font-family: Verdana, sans-serif;
+}
+
+th {
+    background-color: #c0c0c0;
+}
+
+td {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+tr:nth-child(odd) {
+    background-color: #eee;
+}
