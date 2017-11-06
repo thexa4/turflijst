@@ -17,7 +17,7 @@ require_admin();
 <body>
 <h1>Admin</h1>
 
-<h2>Betaling toevoegen:</h2>
+<h2>Betaling toevoegen</h2>
 <form action="/deposit" method="POST">
 <select>
 <?php
@@ -35,8 +35,8 @@ foreach($config['users'] as $user) {
 
 <h2>Prijzen</h2>
 <form action="/prices" method="POST">
-Fris: <input name="price[fris]" type="number" placeholder="<?= $config['prices']['fris'] ?>" value="<?= $config['prices']['fris'] ?>" /><br>
-Bier: <input name="price[bier]" type="number" placeholder="<?= $config['prices']['bier'] ?>" value="<?= $config['prices']['bier'] ?>" /> 
+Fris: <input name="price[fris]" type="number" step="0.01" placeholder="<?= number_format($config['prices']['fris'],2) ?>" value="<?= number_format($config['prices']['fris'],2) ?>" /><br>
+Bier: <input name="price[bier]" type="number" step="0.01" placeholder="<?= number_format($config['prices']['bier'],2) ?>" value="<?= number_format($config['prices']['bier'],2) ?>" /> 
 <input type="submit" name="submit" value="Instellen" />
 </form>
 
@@ -60,7 +60,7 @@ foreach($config['users'] as $user) {
 </table>
 </form>
 
-<h2>Emails</h2>
+<h2>Logins</h2>
 <form action="/emails" method="POST">
 
 <table>
