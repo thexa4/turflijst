@@ -23,7 +23,9 @@ function get_transactions() {
     return $result;
 }
 
+$transaction_count = 0;
 function create_transaction($owner, $user, $bier, $fris, $money) {
+    global $transaction_count;
     $data = [
         owner => $owner,
         user => $user,
@@ -33,8 +35,7 @@ function create_transaction($owner, $user, $bier, $fris, $money) {
     ];
 
     $encoded = json_encode($data);
-    $name = time() . '_' . base64_encode($owner) . '.json';
-    
+    $name = time() . '_' . base64_encode($owner) . '-' . $transaction_count++ . '.json';
     file_put_contents("../transactions/$name", $encoded);
 }
 
@@ -55,4 +56,15 @@ function transaction_summary($user) {
     }
 
     return $result;
+}
+
+function transaction_reconcile($owner, $user) {
+    global $config;
+
+    $current = transaction_summary($user);
+    $price = 0;
+    $price += $current['bier'] * $config['prices']['bier'];
+    $price += $current['fris'] * $config['prices']['fris'];
+
+    create_transaction($owner, $user, -$current['bier'], -$current['fris'], -$price);
 }
