@@ -52,7 +52,7 @@ foreach($config['users'] as $user) {
         ?>
         <tr>
         <td><?= $user ?></td>
-        <td><input type="submit" name="remove[<?= base64_encode($user) ?>]" value="Remove" <?php if($removable) { ?> disabled <?php } ?> /> <?php if($removable) { ?> (Niet volledig afrekekend) <?php } ?></td>
+        <td><input type="submit" name="remove[<?= base64_encode($user) ?>]" value="Remove" <?php if(!$removable) { ?> disabled <?php } ?> /> <?php if(!$removable) { ?> (Niet volledig afrekekend) <?php } ?></td>
         </tr>
         <?php
 }
