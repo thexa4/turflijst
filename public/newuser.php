@@ -41,8 +41,10 @@ if (isset($_POST['submit'])) {
 <h1>Dranklijst Scouting Hillegersberg</h1>
 <p>Hier kun je een nieuwe gebruiker toevoegen:
 <form method="POST" action="/newuser">
-Naam: <input type="text" name="name" /><br>
-Email <input type="email" name="email" /><br>
+<div class="align">
+<label for="name">Naam:</label> <input id="name" type="text" name="name" /><br>
+<label for="email">Email:</label> <input id="email" type="email" name="email" /></br>
+</div>
 <input type="submit" name="submit" value="Toevoegen" />
 </form>
 

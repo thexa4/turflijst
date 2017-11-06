@@ -36,8 +36,9 @@ foreach($config['users'] as $user) {
 
 <h2>Prijzen</h2>
 <form action="/prices" method="POST">
-Fris: <input name="price[fris]" type="number" step="0.01" placeholder="<?= number_format($config['prices']['fris'],2) ?>" value="<?= number_format($config['prices']['fris'],2) ?>" /><br>
-Bier: <input name="price[bier]" type="number" step="0.01" placeholder="<?= number_format($config['prices']['bier'],2) ?>" value="<?= number_format($config['prices']['bier'],2) ?>" /> 
+<div class="align">
+<label for="fris">Fris:</label><input id="fris" name="price[fris]" type="number" step="0.01" placeholder="<?= number_format($config['prices']['fris'],2) ?>" value="<?= number_format($config['prices']['fris'],2) ?>" /><br>
+<label for="bier">Bier:</label><input id="bier" name="price[bier]" type="number" step="0.01" placeholder="<?= number_format($config['prices']['bier'],2) ?>" value="<?= number_format($config['prices']['bier'],2) ?>" /> 
 <input type="submit" name="submit" value="Instellen" />
 </form>
 

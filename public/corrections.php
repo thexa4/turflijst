@@ -21,9 +21,14 @@ include_once("../transaction.php");
 <body>
 <h1>Dranklijst Scouting Hillegersberg</h1>
 <p>Hier kan je de aantallen corrigeren, mocht je teveel bier of fris hebben aangeklikt.</p>
-<a href="/list">Toevoegen</a>
+<a href="/admin">Administratie</a> - 
+<a href="/newuser">Nieuwe Gebruiker</a> - 
+<a href="https://github.com/thexa4/turflijst/issues">Problemen?</a>
+<div class="tabs">
+<a href="/list">Toevoegen</a> | <strong>Correcties</strong>
+</div>
 <form method="POST" action="/subtract">
-<table>
+<table class="alert">
 <thead><th>Naam</th><th colspan="2">&nbsp;</th><th>Saldo</th></thead>
 <?php
 foreach($config['users'] as $user) {

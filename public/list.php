@@ -18,10 +18,12 @@ require_login();
 <body>
 <h1>Dranklijst Scouting Hillegersberg</h1>
 <p>Hier kun je voor iedereen bier strepen. Mocht je een foutje hebben gemaakt, klik dan op correcties.</p>
-<a href="/corrections">Correcties</a>
-<a href="/admin">Administratie</a>
-<a href="/newuser">Nieuwe Gebruiker</a>
+<a href="/admin">Administratie</a> - 
+<a href="/newuser">Nieuwe Gebruiker</a> - 
 <a href="https://github.com/thexa4/turflijst/issues">Problemen?</a>
+<div class="tabs">
+<strong>Strepen</strong> | <a href="/corrections">Correcties</a>
+</div>
 <form method="POST" action="/add">
 <table>
 <thead><th>Naam</th><th colspan="2">&nbsp;</th><th>Saldo</th></thead>

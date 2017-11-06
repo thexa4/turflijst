@@ -1,5 +1,13 @@
 body {
     font-family: Verdana, sans-serif;
+    font-size: larger;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+table {
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 th {
@@ -9,6 +17,38 @@ th {
 td {
     padding-left: 1em;
     padding-right: 1em;
+}
+
+.tabs {
+    clear: left;
+    margin-top: 1.5em;
+    margin-bottom: -2em;
+}
+
+input, select {
+    font-size: inherit;
+}
+input[type="submit"] {
+    color: #eee;
+    background-color: #005da8;
+    display: inline-block;
+    box-shadow: none;
+    border-radius: 0.5em;
+    line-height: 2.1;
+    appearance: none;
+    outline: none;
+    border: none;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.align label {
+    display: inline-block;
+    width: 5em;
+}
+
+table.alert input[type="submit"] {
+    background-color: #600;
 }
 
 tr:nth-child(odd) {
