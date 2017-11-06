@@ -23,10 +23,18 @@ function set_config($name, $data) {
 }
 
 function get_prices() {
-    return get_config('prices', [
-        fris => 0.60,
-        bier => 0.75,
-    ]);
+    $result = get_config('prices', false);
+    
+    if ($result)
+        return [
+            fris => $result->fris,
+            bier => $result->bier,
+        ];
+    else
+        return [
+            fris => 0.60,
+            bier => 0.75,
+        ];
 }
 
 function set_prices($prices) {

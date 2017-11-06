@@ -33,5 +33,5 @@ if (isset($_POST['bier']))
         create_transaction($owner, $user, -1, 0, 0);
     }
 
-header("Location: /list");
+header("Location: /corrections");
 ?>

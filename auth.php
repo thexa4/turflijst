@@ -16,3 +16,17 @@ function require_login() {
         exit();
     }
 }
+
+function is_admin() {
+    global $config;
+    return in_array($_SESSION['mail'], $config['admins']);
+}
+
+function require_admin() {
+    require_login();
+
+    if(!is_admin()) {
+        header("Location: /list");
+        exit();
+    }
+}

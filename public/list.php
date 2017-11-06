@@ -19,6 +19,7 @@ require_login();
 <p>Hier kun je voor iedereen bier strepen. Mocht je een foutje hebben gemaakt, klik dan op correcties.</p>
 <a href="/corrections">Correcties</a>
 <a href="/admin">Administratie</a>
+<a href="/newuser">Nieuwe Gebruiker</a>
 <form method="POST" action="/add">
 <table>
 <th><tr><td>Naam</td><td colspan="2">&nbsp;</td><td>Saldo</td></tr></th>
