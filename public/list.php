@@ -20,6 +20,7 @@ require_login();
 <a href="/corrections">Correcties</a>
 <a href="/admin">Administratie</a>
 <a href="/newuser">Nieuwe Gebruiker</a>
+<a href="https://github.com/thexa4/turflijst/issues">Problemen?</a>
 <form method="POST" action="/add">
 <table>
 <th><tr><td>Naam</td><td colspan="2">&nbsp;</td><td>Saldo</td></tr></th>

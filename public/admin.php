@@ -18,7 +18,7 @@ require_admin();
 <h1>Admin</h1>
 
 <h2>Betaling toevoegen:</h2>
-<form action="POST" method="deposit">
+<form action="/deposit" method="POST">
 <select>
 <?php
 foreach($config['users'] as $user) {
@@ -34,14 +34,14 @@ foreach($config['users'] as $user) {
 </form>
 
 <h2>Prijzen</h2>
-<form action="POST" method="/prices">
+<form action="/prices" method="POST">
 Fris: <input name="price[fris]" type="number" placeholder="<?= $config['prices']['fris'] ?>" value="<?= $config['prices']['fris'] ?>" /><br>
 Bier: <input name="price[bier]" type="number" placeholder="<?= $config['prices']['bier'] ?>" value="<?= $config['prices']['bier'] ?>" /> 
 <input type="submit" name="submit" value="Instellen" />
 </form>
 
 <h2>Users</h2>
-<form action="POST" method="/users">
+<form action="/users" method="POST">
 <table>
     <thead><th>Name</th><th></th></thead>
 
@@ -61,7 +61,7 @@ foreach($config['users'] as $user) {
 </form>
 
 <h2>Emails</h2>
-<form action="POST" method="/emails">
+<form action="/emails" method="POST">
 
 <table>
     <thead><th>Email</th><th>&nbsp;</th></thead>
@@ -79,11 +79,12 @@ foreach($config['emails'] as $mail) {
         <?php
         if (in_array($mail, $config['admins'])) { ?>
             <input type="submit" name="remove_admin[<?= base64_encode($mail) ?>]" value="Verwijder administrator" />
+            <input type="submit" name="remove[<?= base64_encode($mail) ?>]" value="Remove" disabled /> 
         <?php } else { ?>
             <input type="submit" name="add_admin[<?= base64_encode($mail) ?>]" value="Maak administrator" />
+            <input type="submit" name="remove[<?= base64_encode($mail) ?>]" value="Remove" /> 
         <?php } ?>
 
-            <input type="submit" name="remove[<?= base64_encode($mail) ?>]" value="Remove" /> 
         <?php } ?>
         </td></tr>
         <?php
@@ -93,7 +94,7 @@ foreach($config['emails'] as $mail) {
 </form>
 
 <h2>Afrekenen</h2>
-<form action="POST" method="/reconcile">
+<form action="/reconcile" method="POST">
 <input type="submit" name="submit" value="Reken af" />
 </form>
 
