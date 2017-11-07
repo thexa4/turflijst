@@ -35,7 +35,7 @@ function create_transaction($owner, $user, $bier, $fris, $money) {
     ];
 
     $encoded = json_encode($data);
-    $name = time() . '_' . base64_encode($owner) . '-' . $transaction_count++ . '.json';
+    $name = time() . '_' . base64_encode($owner) . '_' . $transaction_count++ . '.json';
     file_put_contents("../transactions/$name", $encoded);
 }
 

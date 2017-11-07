@@ -1,13 +1,10 @@
 <?php
 
-session_start();
-if(!isset($_SESSION['mail'])) {
-    header("Location: /login");
-    exit();
-}
-
+include_once("../auth.php");
 include_once("../config.php");
 include_once("../transaction.php");
+
+require_login();
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +18,9 @@ include_once("../transaction.php");
 <body>
 <h1>Dranklijst Scouting Hillegersberg</h1>
 <p>Hier kan je de aantallen corrigeren, mocht je teveel bier of fris hebben aangeklikt.</p>
+<?php if (is_admin()) { ?>
 <a href="/admin">Administratie</a> - 
+<?php } ?>
 <a href="/newuser">Nieuwe Gebruiker</a> - 
 <a href="https://github.com/thexa4/turflijst/issues">Problemen?</a>
 <div class="tabs">

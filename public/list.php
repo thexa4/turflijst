@@ -18,7 +18,9 @@ require_login();
 <body>
 <h1>Dranklijst Scouting Hillegersberg</h1>
 <p>Hier kun je voor iedereen bier strepen. Mocht je een foutje hebben gemaakt, klik dan op correcties.</p>
+<?php if (is_admin()) { ?>
 <a href="/admin">Administratie</a> - 
+<?php } ?>
 <a href="/newuser">Nieuwe Gebruiker</a> - 
 <a href="https://github.com/thexa4/turflijst/issues">Problemen?</a>
 <div class="tabs">
