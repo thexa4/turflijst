@@ -28,7 +28,13 @@ if (empty($config['emails']) || in_array($_POST['email'], $config['emails'])) {
 
     $url = 'https://dranklijst.maxmaton.nl/confirm?payload=' . base64_encode($payload) . '&mac=' . $mac;
 
-    mail($_POST['email'], "Dranklijst login", $url);
+    $message = "Hallo,
+
+Dit is je link om in te loggen op de streeplijst: $url
+
+Fijne dag!";
+
+    mail($_POST['email'], "Dranklijst login", $message);
 
 }
 ?>
