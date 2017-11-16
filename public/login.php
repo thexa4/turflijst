@@ -1,7 +1,11 @@
 <?php
 
-session_start();
-if(isset($_SESSION['mail'])) {
+
+include_once('../auth.php');
+include_once("../config.php");
+include_once("../transaction.php");
+
+if (is_logged_in()) {
     header("Location: /list");
     exit();
 }
@@ -10,8 +14,6 @@ if(!isset($_POST['email'])) {
     header("Location: /");
     exit();
 }
-
-require_once('../config.php');
 
 // Only log in if user is known
 if (empty($config['emails']) || in_array($_POST['email'], $config['emails'])) {

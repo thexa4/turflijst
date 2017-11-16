@@ -1,7 +1,10 @@
 <?php
 
-session_start();
-if(isset($_SESSION['mail'])) {
+include_once('../auth.php');
+include_once("../config.php");
+include_once("../transaction.php");
+
+if (is_logged_in()) {
     header("Location: /list");
     exit();
 }

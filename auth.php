@@ -2,16 +2,27 @@
 
 include_once("../config.php");
 
-function require_login() {
+function is_logged_in() {
     global $config;
-    session_start();
+    session_start(array(
+        'cookie_httponly' => true,
+        'cookie_secure' => true,
+        'cookie_path' => '/; SameSite=Lax',
+    ));
     if(!isset($_SESSION['mail'])) {
-        header("Location: /login");
-        exit();
+        return false;
     }
 
     if(!in_array($_SESSION['mail'], $config['emails'])) {
         session_destroy();
+        return false;
+    }
+    return true;
+}
+
+function require_login() {
+    global $config;
+    if (!is_logged_in()) {
         header("Location: /login");
         exit();
     }

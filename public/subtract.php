@@ -1,13 +1,10 @@
 <?php
 
-session_start();
-if(!isset($_SESSION['mail'])) {
-    header("Location: /login");
-    exit();
-}
-
+include_once('../auth.php');
 include_once("../config.php");
 include_once("../transaction.php");
+
+require_login();
 
 $owner = $_SESSION['mail'];
 
