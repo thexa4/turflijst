@@ -11,7 +11,7 @@ if (isset($_POST['remove']))
         $user = base64_decode($encoded);
 
         $users = $config['users'];
-        $users = array_filter($users, function($i) use ($user) { return $i != $user; });
+        $users = array_values(array_filter($users, function($i) use ($user) { return $i != $user; }));
         set_users($users);
         $config['users'] = $users;
     }

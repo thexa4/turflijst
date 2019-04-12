@@ -12,7 +12,7 @@ if (isset($_POST['add_admin']))
 
         $admins = $config['admins'];
         array_push($admins, $mail);
-        $admins = array_unique($admins);
+        $admins = array_values(array_unique($admins));
         set_login([
             emails => $config['emails'],
             admins => $admins,
@@ -25,7 +25,7 @@ if (isset($_POST['remove_admin']))
         $mail = base64_decode($encoded);
 
         $admins = $config['admins'];
-        $admins = array_filter($admins, function($i) use ($mail) { return $i != $mail; });
+        $admins = array_values(array_filter($admins, function($i) use ($mail) { return $i != $mail; }));
         set_login([
             emails => $config['emails'],
             admins => $admins,
@@ -38,7 +38,7 @@ if (isset($_POST['remove']))
         $mail = base64_decode($encoded);
 
         $emails = $config['emails'];
-        $emails = array_filter($emails, function($i) use ($mail) { return $i != $mail; });
+        $emails = array_values(array_filter($emails, function($i) use ($mail) { return $i != $mail; }));
         set_login([
             emails => $emails,
             admins => $config['admins'],
