@@ -35,6 +35,7 @@ foreach($config['users'] as $user) {
 </form>
 
 <h2>Prijzen</h2>
+<p>Pas op, dit verandert ook de prijzen van alle nog niet <a href="#reconcile">afgerekende</a> bier en fris. Als dit niet de bedoeling is, klik dan eerst op <a href="#reconcile">reken af</a>.
 <form action="/prices" method="POST">
 <div class="align">
 <label for="fris">Fris:</label><input id="fris" name="price[fris]" type="number" step="0.01" placeholder="<?= number_format($config['prices']['fris'],2) ?>" value="<?= number_format($config['prices']['fris'],2) ?>" /><br>
@@ -95,7 +96,7 @@ foreach($config['emails'] as $mail) {
 </table>
 </form>
 
-<h2>Afrekenen</h2>
+<h2 id="reconcile">Afrekenen</h2>
 <form action="/reconcile" method="POST">
 <input type="submit" name="submit" value="Reken af" />
 </form>
