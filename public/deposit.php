@@ -6,7 +6,6 @@ include_once('../transaction.php');
 
 require_admin();
 
-print_r($_POST);
 if(isset($_POST['user']) && isset($_POST['payment'])) {
     
     $user = $_POST['user'];
