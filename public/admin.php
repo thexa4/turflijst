@@ -100,5 +100,24 @@ foreach($config['emails'] as $mail) {
 <input type="submit" name="submit" value="Reken af" />
 </form>
 
+<h2>Transacties</h2>
+<table>
+<thead><th>Email</th><th>Gebruiker</th><th>Bier</th><th>Fris</th><th>Betaling</th></thead>
+<?php
+foreach(array_reverse(get_transactions()) as $transaction)
+{
+    ?>
+    <tr>
+        <td><?= $transaction->owner ?></td>
+        <td><?= $transaction->user ?></td>
+        <td style="text-align: right"><?= $transaction->bier != 0 ? $transaction->bier : '' ?></td>
+        <td style="text-align: right"><?= $transaction->fris != 0 ? $transaction->fris : '' ?></td>
+        <td style="text-align: right"><?= $transaction->money != 0 ? number_format($transaction->money, 2) : '' ?></td>
+    </tr>
+    <?php
+}
+?>
+</table>
+
 </body>
 </html>
