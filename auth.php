@@ -8,6 +8,7 @@ function is_logged_in() {
         'cookie_httponly' => true,
         'cookie_secure' => true,
         'cookie_path' => '/; SameSite=Lax',
+	'cookie_lifetime' => 2*365*24*60*60,
     ));
     if(!isset($_SESSION['mail'])) {
         return false;
