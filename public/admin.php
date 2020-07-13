@@ -18,6 +18,9 @@ require_admin();
 <body>
 <h1>Admin</h1>
 
+<a href="/">Terug naar dranklijst</a>
+<!--Dit is de link terug naar de dranklijst -->
+
 <h2>Betaling toevoegen</h2>
 <form action="/deposit" method="POST">
 <select name="user">
